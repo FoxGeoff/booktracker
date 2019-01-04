@@ -32,7 +32,8 @@ export class DataService {
     return this.http.get<Book[]>('/api/books');
   }
 
-  getBookById(id: number): Book {
-    return allBooks.find(book => book.bookID === id);
+  getBookById(id: number): Observable<Book> {
+    console.log('Getting id: ${id} book from the server');
+    return this.http.get<Book>('/api/books/${id}');
   }
 }

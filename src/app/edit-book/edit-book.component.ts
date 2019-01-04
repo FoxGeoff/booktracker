@@ -14,11 +14,16 @@ export class EditBookComponent implements OnInit {
   selectedBook: Book;
 
   constructor(private route: ActivatedRoute,
-              private dataService: DataService) { }
+    private dataService: DataService) { }
 
   ngOnInit() {
     let bookID: number = parseInt(this.route.snapshot.params['id']);
-    this.selectedBook = this.dataService.getBookById(bookID);
+    this.dataService.getBookById(bookID)
+      .subscribe(
+        (data: Book) => this.selectedBook = data,
+        (err: any) => console.log(err),
+        () => console.log('complete getting book ${bookID}')
+      );
   }
 
   setMostPopular(): void {

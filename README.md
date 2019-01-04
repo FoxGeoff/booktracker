@@ -48,3 +48,22 @@ getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('/api/books');
   }
 ```
+## Check: Get one book from a RESTful service
+* calling function:
+```
+ngOnInit() {
+    let bookID: number = parseInt(this.route.snapshot.params['id']);
+    this.dataService.getBookById(bookID)
+      .subscribe(
+        (data: Book) => this.selectedBook = data,
+        (err: any) => console.log(err),
+        () => console.log('complete getting book ${bookID}')
+      );
+```
+* Data Service:
+```
+getBookById(id: number): Observable<Book> {
+    console.log('Getting id: ${id} book from the server');
+    return this.http.get<Book>('/api/books/${id}');
+  }
+```
