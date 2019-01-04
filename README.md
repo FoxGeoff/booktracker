@@ -31,5 +31,20 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * CRUD => REST and HTTP codes
 * Subscribing to Observables
 
-## Check: Get all from a RESTful service
-* notes
+## Check: Get all books from a RESTful service
+* calling function:
+```
+ngOnInit() {
+    this.dataService.getAllBooks().subscribe(
+      (data: Book[]) => this.allBooks = data,
+      (err: any) => console.log(err),
+      () => console.log('all done getting books.')
+    );
+```
+* Data service:
+```
+getAllBooks(): Observable<Book[]> {
+    console.log('Getting all books from the server');
+    return this.http.get<Book[]>('/api/books');
+  }
+```
