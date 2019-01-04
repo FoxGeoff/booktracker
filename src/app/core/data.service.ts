@@ -33,7 +33,7 @@ export class DataService {
   }
 
   getBookById(id: number): Observable<Book> {
-    console.log('Getting id: ${id} book from the server');
-    return this.http.get<Book>('/api/books/${id}');
+    console.log('Getting book from the server id: ' + id );
+    return this.http.get<Book>(`/api/books/${id}`);
   }
 }

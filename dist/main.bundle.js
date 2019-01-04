@@ -419,8 +419,8 @@ var DataService = (function () {
         return this.http.get('/api/books');
     };
     DataService.prototype.getBookById = function (id) {
-        console.log('Getting id: ${id} book from the server');
-        return this.http.get('/api/books/${id}');
+        console.log('Getting book from the server id: ' + id);
+        return this.http.get("/api/books/" + id);
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -600,7 +600,7 @@ var EditBookComponent = (function () {
         var _this = this;
         var bookID = parseInt(this.route.snapshot.params['id']);
         this.dataService.getBookById(bookID)
-            .subscribe(function (data) { return _this.selectedBook = data; }, function (err) { return console.log(err); }, function () { return console.log('complete getting book ${bookID}'); });
+            .subscribe(function (data) { return _this.selectedBook = data; }, function (err) { return console.log(err); }, function () { return console.log("complete getting book " + bookID); });
     };
     EditBookComponent.prototype.setMostPopular = function () {
         this.dataService.setMostPopularBook(this.selectedBook);

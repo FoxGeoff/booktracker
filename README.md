@@ -67,3 +67,5 @@ getBookById(id: number): Observable<Book> {
     return this.http.get<Book>('/api/books/${id}');
   }
 ```
+## Check: Get headers
+*

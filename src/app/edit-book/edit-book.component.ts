@@ -22,7 +22,7 @@ export class EditBookComponent implements OnInit {
       .subscribe(
         (data: Book) => this.selectedBook = data,
         (err: any) => console.log(err),
-        () => console.log('complete getting book ${bookID}')
+        () => console.log(`complete getting book ${bookID}`)
       );
   }
 
