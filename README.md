@@ -94,3 +94,24 @@ getBookById(id: number): Observable<Book> {
     });
   }
 ```
+## Check: Transforming Data with RxJS
+* calling
+```
+this.dataService.getOldBookById(bookID)
+      .subscribe(
+        (data: OldBook) => console.log(`Old book title: ${data.bookTitle}`)
+      );
+```
+* Service
+```
+getOldBookById(id: number): Observable<OldBook> {
+    return this.http.get<Book>(`/api/books/${id}`)
+      .pipe(
+        map(b => <OldBook>{
+          bookTitle: b.title,
+          year: b.publicationYear
+        }),
+        tap(clasicBook => console.log(clasicBook))
+      );
+  }
+```
