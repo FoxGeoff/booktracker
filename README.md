@@ -69,3 +69,28 @@ getBookById(id: number): Observable<Book> {
 ```
 ## Check: Get headers
 *
+```
+getBookById(id: number): Observable<Book> {
+    let getHeaders: HttpHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Authorization': 'my-token'
+    });
+
+    console.log('Getting book from the server id: ' + id );
+    return this.http.get<Book>(`/api/books/${id}`, {
+      headers: getHeaders
+    });
+  }
+```
+* Refactor:
+```
+getBookById(id: number): Observable<Book> {
+    console.log('Getting book from the server id: ' + id );
+    return this.http.get<Book>(`/api/books/${id}`, {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Authorization': 'my-token'
+      })
+    });
+  }
+```
