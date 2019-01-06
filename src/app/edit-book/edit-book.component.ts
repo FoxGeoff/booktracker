@@ -26,7 +26,7 @@ export class EditBookComponent implements OnInit {
         () => console.log(`complete getting book ${bookID}`)
       );
 
-      this.dataService.getOldBookById(bookID)
+    this.dataService.getOldBookById(bookID)
       .subscribe(
         (data: OldBook) => console.log(`Old book title: ${data.bookTitle}`)
       );
