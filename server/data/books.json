@@ -34,5 +34,23 @@
         "title": "Alice's Adventures in Wonderland",
         "author": "Lewis Carroll",
         "publicationYear": "1865"
+    },
+    {
+        "bookID": 7,
+        "title": "Boo",
+        "author": "Geoff",
+        "publicationYear": "2019"
+    },
+    {
+        "bookID": 8,
+        "title": "Boo",
+        "author": "Geoff",
+        "publicationYear": "2019"
+    },
+    {
+        "bookID": 9,
+        "title": "",
+        "author": "",
+        "publicationYear": ""
     }
 ]

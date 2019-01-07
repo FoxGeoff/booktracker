@@ -30,6 +30,7 @@ module.exports = "<div class=\"col-lg-5\">\r\n  <div class=\"well bs-component\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddBookComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_core_data_service__ = __webpack_require__("../../../../../src/app/core/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -40,15 +41,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AddBookComponent = (function () {
-    function AddBookComponent() {
+    function AddBookComponent(dataService) {
+        this.dataService = dataService;
     }
     AddBookComponent.prototype.ngOnInit = function () { };
     AddBookComponent.prototype.saveBook = function (formValues) {
         var newBook = formValues;
         newBook.bookID = 0;
         console.log(newBook);
-        console.warn('Save new book not yet implemented.');
+        this.dataService.addBook(newBook)
+            .subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
     };
     AddBookComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -56,7 +60,7 @@ var AddBookComponent = (function () {
             template: __webpack_require__("../../../../../src/app/add-book/add-book.component.html"),
             styles: []
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_app_core_data_service__["a" /* DataService */]])
     ], AddBookComponent);
     return AddBookComponent;
 }());

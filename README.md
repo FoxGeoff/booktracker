@@ -142,3 +142,18 @@ updateBook(updatedBook: Book):Observable<void>{
     return this.http.delete<void>(`api/books/${bookID}`);
   }
 ```
+## Check CRUD component calls
+* add-book.component
+```
+saveBook(formValues: any): void {
+    let newBook: Book = <Book>formValues;
+    newBook.bookID = 0;
+    console.log(newBook);
+
+    this.dataService.addBook(newBook)
+      .subscribe(
+        (data:Book) => console.log(data),
+        (err: any) => console.log(err)
+      );
+  }
+```
