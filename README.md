@@ -157,3 +157,12 @@ saveBook(formValues: any): void {
       );
   }
 ```
+* edit-book.component
+```
+saveChanges(): void {
+    this.dataService.updateBook(this.selectedBook)
+    .subscribe(
+      (data: void) => console.log(`${this.selectedBook.title} updated successfully`),
+      (err: any) => console.log(err)
+    );
+```

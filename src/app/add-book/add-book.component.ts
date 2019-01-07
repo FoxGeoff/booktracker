@@ -21,7 +21,7 @@ export class AddBookComponent implements OnInit {
 
     this.dataService.addBook(newBook)
       .subscribe(
-        (data:Book) => console.log(data),
+        (data: Book) => console.log(data),
         (err: any) => console.log(err)
       );
   }
