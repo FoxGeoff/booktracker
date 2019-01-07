@@ -179,3 +179,18 @@ deleteBook(bookID: number): void {
       );
   }
 ```
+**Exercise: code all the CRUD opperation for reader...**
+
+# Advanced HTTP Requests and Error Handling
+
+* Handling HTTP Errors
+```
+getAllBooks(): Observable<Book[] | BookTrackerError> {
+    console.log('Getting all books from the server');
+    // Test: '/api/error/500'
+    return this.http.get<Book[]>('/api/books')
+      .pipe(
+        catchError(err => this.handleHttpError(err))
+      );
+  }
+```
