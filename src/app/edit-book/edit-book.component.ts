@@ -38,9 +38,9 @@ export class EditBookComponent implements OnInit {
 
   saveChanges(): void {
     this.dataService.updateBook(this.selectedBook)
-    .subscribe(
-      (data: void) => console.log(`${this.selectedBook.title} updtaed successfully`),
-      (err: any) => console.log(err)
-    );
+      .subscribe(
+        (data: void) => console.log(`${this.selectedBook.title} updated successfully`),
+        (err: any) => console.log(err)
+      );
   }
 }

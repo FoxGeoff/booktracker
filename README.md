@@ -166,3 +166,16 @@ saveChanges(): void {
       (err: any) => console.log(err)
     );
 ```
+* delete(dashboard.component)
+```
+deleteBook(bookID: number): void {
+    this.dataService.deleteBook(bookID)
+      .subscribe(
+        (data: void) => {
+          let index: number = this.allBooks.findIndex(book => book.bookID === bookID);
+          this.allBooks.splice(index, 1);
+        },
+        (err: any) => console.log(err)
+      );
+  }
+```
